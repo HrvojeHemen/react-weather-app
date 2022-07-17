@@ -16,7 +16,7 @@ import Chart from "react-apexcharts";
 
 
 class WeatherApp extends Component {
-
+    APIKEY = "48e2ca50bc10412faac90542221507"
 
     state = {
         forecastDays: [],
@@ -35,7 +35,7 @@ class WeatherApp extends Component {
 
     loadCity = (city) => {
 
-        axios.get("https://api.weatherapi.com/v1/forecast.json?key=48e2ca50bc10412faac90542221507&aqi=yes&days=5&q=" + city)
+        axios.get("https://api.weatherapi.com/v1/forecast.json?key=" + this.APIKEY + "&aqi=yes&days=5&q=" + city)
             .then(resp => resp.data)
             .then(data => {
                 let days = data['forecast']['forecastday']
